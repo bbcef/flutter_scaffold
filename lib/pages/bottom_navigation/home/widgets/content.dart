@@ -14,7 +14,7 @@ class _HomeContentState extends State<HomeContent> {
   @override
   void initState() {
     super.initState();
-    MovieList.getMovieList(0,10).then(
+    MovieList.getMovieList(0,20).then(
       (result){
         setState((){
           movies.addAll(result);

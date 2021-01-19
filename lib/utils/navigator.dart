@@ -39,6 +39,7 @@ class NavigatorUtils {
     }
   }
 
+  // 渐变显示
   static void pushPageByFade({
     @required BuildContext context,
     @required Widget targPage,
@@ -79,4 +80,23 @@ class NavigatorUtils {
     }
   }
 }
+
+//右--->左
+class Right2LeftRouter<T> extends PageRouteBuilder<T> {
+  final Widget child;
+  final int durationMs;
+  final Curve curve;
+  Right2LeftRouter({this.child,this.durationMs=500,this.curve=Curves.fastOutSlowIn})
+      :super(
+      transitionDuration:Duration(milliseconds: durationMs),
+      pageBuilder:(ctx,a1,a2)=>child,
+      transitionsBuilder:(ctx,a1,a2, child,) =>
+         SlideTransition(
+           child: child,
+            position: Tween<Offset>(
+              begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0),).animate(
+                CurvedAnimation(parent: a1, curve: curve)),
+        ));
+}
+
 
