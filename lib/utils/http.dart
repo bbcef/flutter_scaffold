@@ -24,7 +24,7 @@ class Http{
         return response;
       },
       onError: (err){
-        print(err);
+        // print(err);
       } 
     );
 
@@ -47,6 +47,7 @@ class Http{
 
 
 void formatError(DioError e) {
+  cancel();
   if (e.type == DioErrorType.CONNECT_TIMEOUT) {
     showToast("网络好像出问题了");
   } else if (e.type == DioErrorType.SEND_TIMEOUT) {

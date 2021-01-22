@@ -8,6 +8,12 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('我的'),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            Scaffold.of(context).openDrawer();
+          },
+        )
       ),
       body: ProfileContent()
     );

@@ -39,3 +39,9 @@
 + other
 1. 如果您有更好的建议，意见请评论与我交流或微信（bb_c_e_f）联系我。
 2. ...
+
+
+
++ 特别说明：
+  + map 地图使用 高德 （仅做了安卓集成） 
+    集成方法参考： https://lbs.amap.com/api/flutter/guide/map-flutter-plug-in/map-flutter-info

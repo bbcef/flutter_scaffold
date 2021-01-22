@@ -21,9 +21,7 @@ class _RouterPageFormState extends State<RouterPageForm> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Card(
-              child:Text(_text,style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700),),
-            ),
+            Text(_text,style: TextStyle(fontSize: 16)),
             RaisedButton(
               child: Text('页面跳转到 To 页面'),
               onPressed: (){

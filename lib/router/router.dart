@@ -12,6 +12,7 @@ import 'package:flutter_scaffold/utils/navigator.dart';
 import 'package:flutter_scaffold/widgets/cs_image_preview.dart';
 import 'package:flutter_scaffold/pages/modules/b_movie_page/index.dart';
 import 'package:flutter_scaffold/pages/modules/image_picker/index.dart';
+import 'package:flutter_scaffold/pages/modules/amap_flutter_map/index.dart';
 
 class CsRouter{
   static final Map<String, WidgetBuilder> routes = {
@@ -29,6 +30,8 @@ class CsRouter{
     '/b_movie_list': (context) => BMoviePage(),
     '/image_picker': (context) => ImagePickerPage(),
     '/url_launcher': (context) => UrlLauncherPage(),
+    '/amap_flutter_map': (context) => AmapFlutterMapPage(),
+
   };
 
   static final String initialRoute = '/';

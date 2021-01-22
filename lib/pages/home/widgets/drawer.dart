@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_scaffold/viewModel/app_view_model.dart';
 import 'package:provider/provider.dart';
 
-import '../../../config.dart';
-
 class DrawerContent extends StatefulWidget {
   @override
   _DrawerContentState createState() => _DrawerContentState();
@@ -13,10 +11,11 @@ class _DrawerContentState extends State<DrawerContent> {
 
   // 亮暗模式
   ListTile _brightnessWidget(appVm){
+    bool isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     return ListTile(
       title: Text('深色模式'),
       trailing: Switch(
-        value: appVm.currentThemeMode == ThemeMode.dark ? true : false,
+        value: isDark ? true : false,
         onChanged: (value){
           appVm.switchingTheme(value);
           // Scaffold.of(context).openEndDrawer();

@@ -8,27 +8,57 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
-
+  bool _loading = false;
   List movies = [];
+
+  void getLIstData (){
+    setState((){
+      _loading = false;
+    });
+    MovieList.getMovieList(0,20).then(
+      (result){
+        setState((){
+          _loading = true;
+          movies.addAll(result);
+        });
+      }
+    ).catchError((err) {
+      setState((){
+        _loading = true;
+      });
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    MovieList.getMovieList(0,20).then(
-      (result){
-        setState((){
-          movies.addAll(result);
-        });
-      }
+    getLIstData();
+  }
+  Widget _loadingWidget(){
+    return Center(
+      child: Text('加载中...')
     );
   }
-
+  Widget _warningWidget(){
+    return Center(
+      child: GestureDetector(
+        onTap: () => getLIstData(),
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          color:Colors.transparent,
+          alignment: Alignment.center,
+          child: Text('数据加载失败，轻触重试...'),
+        ),
+      )
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    if(movies.length == 0){
-      return Center(
-        child: Text('加载中...')
-      );
+    if(movies.length == 0 && _loading == false){
+      return _loadingWidget();
+    } else if(movies.length == 0 && _loading == true){
+      return _warningWidget();
     }
     return ListView.builder(
       itemCount: movies.length,

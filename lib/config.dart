@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:amap_flutter_base/amap_flutter_base.dart';
+
 class AppConfig{
   // ----------------------------初始化----------------------------
   // 主题
   static final Color primaryColor = Colors.blue;
   // 亮暗模式 - 
-  static final ThemeMode themeMode = ThemeMode.light;
+  static final ThemeMode themeMode = ThemeMode.system;
   // 是否显示性能浮层
   static final bool showPerformanceOverlay = false;
   // title
@@ -56,4 +58,12 @@ class ThemeConfig{
   
 
 
+}
+
+/// 高德地图
+class AmapConfig{
+  static const AMapApiKey amapApiKeys = AMapApiKey(
+    androidKey: 'e575fec419919926e6e91007b886562f',
+    iosKey: '您申请的iOS平台的key'
+  );
 }

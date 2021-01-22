@@ -29,7 +29,7 @@ class _RouterPageToState extends State<RouterPageTo> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(message,style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700),),
+              Text(message,style: TextStyle(fontSize: 16)),
               RaisedButton(
                 child: Text('返回 form 页面'),
                 onPressed: () => _navPop(context)

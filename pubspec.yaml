@@ -23,7 +23,14 @@ dependencies:
   url_launcher: ^5.7.10
   # toast 弹出框
   fluttertoast: ^7.1.6
+  # 权限
+  permission_handler: ^5.0.1+1
+  # map
+  amap_flutter_base: ^1.0.1
+  amap_flutter_map: ^1.0.0
 
+
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

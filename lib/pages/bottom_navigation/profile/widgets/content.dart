@@ -17,6 +17,7 @@ class _ProfileContentState extends State<ProfileContent> {
       {'icon':Icon(Icons.list,size: iconSize,color: iconColor),'text': 'B站热门排行榜', 'route': '/b_movie_list'},
       {'icon':Icon(Icons.add_photo_alternate,size: iconSize,color: iconColor),'text': '插件 - image_picker', 'route': '/image_picker'},
       {'icon':Icon(Icons.pending,size: iconSize,color: iconColor),'text': '插件 - url_launcher', 'route': '/url_launcher'},
+      {'icon':Icon(Icons.map,size: iconSize,color: iconColor),'text': '插件 - amap_flutter_map', 'route': '/amap_flutter_map'},
 
 
 
