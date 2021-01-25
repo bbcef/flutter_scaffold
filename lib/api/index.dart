@@ -7,6 +7,7 @@ class MovieList{
   static Future<List> getMovieList(int start,int limit) async {
     final String url = 'https://movie.douban.com/j/chart/top_list?type=11&interval_id=100%3A90&action=&start=$start&limit=$limit';
     final result = await Http.request(url);
+    print(result);
     // <DoubanMovieTop>
     List movies = [];
     for(var sub in result){

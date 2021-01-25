@@ -6,11 +6,11 @@ import 'package:flutter_scaffold/pages/modules/custom_icon/index.dart';
 import 'package:flutter_scaffold/pages/modules/image_preview.dart';
 import 'package:flutter_scaffold/pages/modules/router_page/router_page_form.dart';
 import 'package:flutter_scaffold/pages/modules/router_page/router_page_to.dart';
+import 'package:flutter_scaffold/pages/modules/share/index.dart';
 import 'package:flutter_scaffold/pages/modules/url_launcher/index.dart';
 import 'package:flutter_scaffold/pages/modules/view_model_page.dart';
 import 'package:flutter_scaffold/utils/navigator.dart';
 import 'package:flutter_scaffold/widgets/cs_image_preview.dart';
-import 'package:flutter_scaffold/pages/modules/b_movie_page/index.dart';
 import 'package:flutter_scaffold/pages/modules/image_picker/index.dart';
 import 'package:flutter_scaffold/pages/modules/amap_flutter_map/index.dart';
 
@@ -27,9 +27,9 @@ class CsRouter{
     RouterPageTo.routeName: (context) => RouterPageTo(),
     // '/cs_image_preview': (context) => CsImagePreview(),
     '/image_preview': (context) => ImagePreview(),
-    '/b_movie_list': (context) => BMoviePage(),
     '/image_picker': (context) => ImagePickerPage(),
     '/url_launcher': (context) => UrlLauncherPage(),
+    '/share': (context) => SharePage(),
     '/amap_flutter_map': (context) => AmapFlutterMapPage(),
 
   };

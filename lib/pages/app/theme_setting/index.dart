@@ -24,13 +24,6 @@ class PageContent extends StatefulWidget {
 }
 
 class _PageContentState extends State<PageContent> {
-
-
-  final List colors = [
-    {'title': '天蓝', 'color': Colors.blue},
-    {'title': '红色', 'color': Colors.red},
-    {'title': '黄色', 'color': Colors.yellow},
-  ];
   @override
   Widget build(BuildContext context) {
     return GridView(
@@ -45,7 +38,7 @@ class _PageContentState extends State<PageContent> {
         return Consumer<AppViewModel>(
           builder: (context,appVM,child){
             return InkWell(
-              radius:50.0,
+              borderRadius: BorderRadius.circular(50.0),
               onTap: (){
                 appVM.switchingPrimaryColro(color);
               },
@@ -57,43 +50,8 @@ class _PageContentState extends State<PageContent> {
             );
           }
         );
-        
-        // Container(
-        //   width: double.infinity,
-        //   decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        //     color: color
-        //   ),
-        // );
       }).toList(),
     );
-    // Padding(
-    //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    //   child: Wrap(
-    //     spacing: 5,
-    //     runSpacing: 5,
-    //     children: <Widget>[
-    //       ...Colors.primaries.map((color) {
-    //         return Material(
-    //           color: color,
-    //           child: Consumer<AppViewModel>(
-    //             builder: (context,appVM,child){
-    //               return InkWell(
-    //                 onTap: (){
-    //                   appVM.switchingPrimaryColro(color);
-    //                 },
-    //                 child: Container(
-    //                   height: 40,
-    //                   width: 40,
-    //                 ),
-    //               );
-    //             }
-    //           )
-    //         );
-    //       }).toList(),
-    //     ],
-    //   ),
-    // );
   }
 }
 
