@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_scaffold/pages/app/theme_setting/index.dart';
 import 'package:flutter_scaffold/pages/app/unknow/index.dart';
 import 'package:flutter_scaffold/pages/home/index.dart';
+import 'package:flutter_scaffold/pages/modules/banner/index.dart';
 import 'package:flutter_scaffold/pages/modules/custom_icon/index.dart';
+import 'package:flutter_scaffold/pages/modules/easyrefresh/index.dart';
 import 'package:flutter_scaffold/pages/modules/image_preview.dart';
+import 'package:flutter_scaffold/pages/modules/r_upgrade/index.dart';
 import 'package:flutter_scaffold/pages/modules/router_page/router_page_form.dart';
 import 'package:flutter_scaffold/pages/modules/router_page/router_page_to.dart';
 import 'package:flutter_scaffold/pages/modules/share/index.dart';
+import 'package:flutter_scaffold/pages/modules/shared_preferences/index.dart';
 import 'package:flutter_scaffold/pages/modules/url_launcher/index.dart';
+import 'package:flutter_scaffold/pages/modules/utils/index.dart';
 import 'package:flutter_scaffold/pages/modules/view_model_page.dart';
 import 'package:flutter_scaffold/utils/navigator.dart';
 import 'package:flutter_scaffold/widgets/cs_image_preview.dart';
@@ -21,7 +26,7 @@ class CsRouter{
     '/theme_setting': (context) => ThemeSettingPage(),
     // '/coustom_icon': (context) => CoustomIconPage(),
 
-
+    
     viewModelPage.routeName: (context) => viewModelPage(),
     RouterPageForm.routeName: (context) => RouterPageForm(),
     RouterPageTo.routeName: (context) => RouterPageTo(),
@@ -31,7 +36,13 @@ class CsRouter{
     '/url_launcher': (context) => UrlLauncherPage(),
     '/share': (context) => SharePage(),
     '/amap_flutter_map': (context) => AmapFlutterMapPage(),
-
+    '/shared_preferences': (context) => SharedPreferencesPage(),
+    '/flutter_easyrefresh': (context) => EasyrefreshPage(),
+    '/banner': (context) => BannerPage(),
+    '/upgrade': (context) => UpgradePage(),
+    '/utils': (context) => UtilsPage(),
+    
+  
   };
 
   static final String initialRoute = '/';

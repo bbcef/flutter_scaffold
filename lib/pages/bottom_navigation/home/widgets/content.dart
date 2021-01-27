@@ -35,7 +35,25 @@ class _ContentState extends State<Content> {
   }
   Widget _loadingWidget(){
     return Center(
-      child: Text('加载中...')
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            child:CircularProgressIndicator(
+              value: null,
+              backgroundColor: Colors.grey.withAlpha(33),
+              valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+              strokeWidth: 5,
+            )
+          ),
+          SizedBox(
+            height: 10
+          ),
+          Text('加载中...')
+        ],
+      )
     );
   }
   Widget _warningWidget(){
@@ -88,14 +106,23 @@ class _BListItemState extends State<BListItem> {
   Widget _buildImg(String image){
     return ClipRRect(
       borderRadius: BorderRadius.circular(3),
-      child: Image.network(image,fit: BoxFit.cover,width: 150)
+      child: FadeInImage.assetNetwork(
+        placeholder: "assets/images/logo.png", 
+        image: image,
+        fit:BoxFit.cover,
+        width: 130,
+        height: 90
+      ),
+      // Image.network(image,fit: BoxFit.cover,width: 130,height: 90) 
     );
+    
+    
   }
   // 文字信息
   Widget _buildText(Map info,int index){
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(left:15),
+        margin: EdgeInsets.only(left:8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,16 +213,16 @@ class _BListItemState extends State<BListItem> {
               _buildText(widget._info,widget.index),
             ],
           ),
-          Positioned.fill(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                // splashColor: Colors.white.withOpacity(0.3),
-                // highlightColor: Colors.white.withOpacity(0.3),
-                onTap: (){},
-              ),
-            )
-          )
+          // Positioned.fill(
+          //   child: Material(
+          //     color: Colors.transparent,
+          //     child: InkWell(
+          //       // splashColor: Colors.white.withOpacity(0.3),
+          //       // highlightColor: Colors.white.withOpacity(0.3),
+          //       onTap: (){},
+          //     ),
+          //   )
+          // )
         ],
       )
     );

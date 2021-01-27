@@ -20,7 +20,9 @@
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
   <!-- GPS定位权限 -->
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
-
+  <!-- 相机 -->
+  <uses-permission android:name="android.permission.CAMERA" /> 
+  
    
     <application
         android:requestLegacyExternalStorage="true"
@@ -51,10 +53,11 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
-            
-            <!-- <meta-data android:name="com.amap.api.v2.apikey" android:value="key">
-              e575fec419919926e6e91007b886562f
-            </meta-data> -->
+            <!-- 高德地图配置 -->
+            <meta-data 
+              android:name="com.amap.api.v2.apikey" 
+              android:value="e575fec419919926e6e91007b886562f" 
+              />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

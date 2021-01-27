@@ -27,6 +27,14 @@ dependencies:
   permission_handler: ^5.0.1+1
   # 分享
   share: ^0.6.5+4
+  # 本地存储
+  shared_preferences: ^0.5.12+4
+  # 上拉加载 下拉刷新
+  flutter_easyrefresh: ^2.1.8
+  # 图片预览
+  photo_view: ^0.10.3
+  # app升级
+  r_upgrade: ^0.3.2+3
   # map
   amap_flutter_base: ^1.0.1
   amap_flutter_map: ^1.0.0

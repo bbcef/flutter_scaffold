@@ -35,6 +35,13 @@ class _UrlLauncherPageState extends State<UrlLauncherPage> {
               onPressed: _launchSMS,
               child: Text('发送信息'),
             ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: RaisedButton(
+                onPressed: _launchApp,
+                child: Text('打开微信'),
+              ),
+            )
           ],
         )
       ),
@@ -76,5 +83,14 @@ _launchSMS() async {
     await launch(sms);
   } else {
     throw 'Could not launch $sms';
+  }
+}
+// 打开第三方应用 (更多 https://www.cnblogs.com/killbugme/p/13601832.html)
+_launchApp() async {
+  String app = 'weixin:// ';
+  if (await canLaunch(app)) {
+    await launch(app);
+  } else {
+    throw 'Could not launch $app';
   }
 }

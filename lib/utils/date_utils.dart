@@ -66,7 +66,6 @@ class DateUtils {
             "yy", year.substring(year.length - 2, year.length));
       }
     }
-
     format = _comFormat(dateTime.month, format, 'M', 'MM');
     format = _comFormat(dateTime.day, format, 'd', 'dd');
     format = _comFormat(dateTime.hour, format, 'H', 'HH');
