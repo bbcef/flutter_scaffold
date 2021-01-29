@@ -11,6 +11,7 @@ import 'package:flutter_scaffold/pages/modules/router_page/router_page_form.dart
 import 'package:flutter_scaffold/pages/modules/router_page/router_page_to.dart';
 import 'package:flutter_scaffold/pages/modules/share/index.dart';
 import 'package:flutter_scaffold/pages/modules/shared_preferences/index.dart';
+import 'package:flutter_scaffold/pages/modules/speak/index.dart';
 import 'package:flutter_scaffold/pages/modules/url_launcher/index.dart';
 import 'package:flutter_scaffold/pages/modules/utils/index.dart';
 import 'package:flutter_scaffold/pages/modules/view_model_page.dart';
@@ -41,6 +42,9 @@ class CsRouter{
     '/banner': (context) => BannerPage(),
     '/upgrade': (context) => UpgradePage(),
     '/utils': (context) => UtilsPage(),
+    '/speak': (context) => SpeakPage(),
+    
+    
     
   
   };

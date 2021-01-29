@@ -29,5 +29,7 @@
 
 
 + 特别说明：
-  + map 地图使用 高德 （仅做了安卓集成） 
+  + map 地图参考
+    https://github.com/bbcef/amap_flutter_map_demo
+    https://github.com/dmlzj/amap_flutter_map
     集成方法参考： https://lbs.amap.com/api/flutter/guide/map-flutter-plug-in/map-flutter-info

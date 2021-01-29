@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:amap_flutter_base/amap_flutter_base.dart';
 
 class AppConfig{
   // ----------------------------初始化----------------------------
@@ -58,12 +57,4 @@ class ThemeConfig{
   
 
 
-}
-
-/// 高德地图
-class AmapConfig{
-  static const AMapApiKey amapApiKeys = AMapApiKey(
-    androidKey: 'e575fec419919926e6e91007b886562f',
-    iosKey: '您申请的iOS平台的key'
-  );
 }

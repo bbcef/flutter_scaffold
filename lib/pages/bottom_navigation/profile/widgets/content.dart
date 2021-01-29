@@ -36,6 +36,7 @@ class _ProfileContentState extends State<ProfileContent> {
     
 
     ListModel(Icons.map,'插件 - amap_flutter_map','/amap_flutter_map',false),
+    ListModel(Icons.map,'插件 - 百度语音识别','/speak',true),
     
   ];
 

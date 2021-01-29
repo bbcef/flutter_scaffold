@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'widgets/map_all_config.dart';
 
 
 class AmapFlutterMapPage extends StatefulWidget {
@@ -20,4 +19,16 @@ class _AmapFlutterMapPageState extends State<AmapFlutterMapPage> {
   }
 }
 
+class AllMapConfigDemoPage extends StatefulWidget {
+  @override
+  _AllMapConfigDemoPageState createState() => _AllMapConfigDemoPageState();
+}
 
+class _AllMapConfigDemoPageState extends State<AllMapConfigDemoPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('参考项目:https://github.com/bbcef/amap_flutter_map_demo'),
+    );
+  }
+}
