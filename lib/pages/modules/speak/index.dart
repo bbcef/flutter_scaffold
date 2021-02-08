@@ -27,7 +27,14 @@ class _BodyCenterState extends State<BodyCenter> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('参考项目:https://github.com/bbcef/asr_plugin_demo'),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('参考项目'),
+          Text('百度语音:https://github.com/bbcef/asr_plugin_demo'),
+          Text('讯飞语音:https://github.com/bbcef/xfspeech_plugin_demo'),
+        ]
+      )
     );
   }
 }

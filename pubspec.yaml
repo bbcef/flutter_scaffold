@@ -9,8 +9,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   # flutter 自带 icon
   cupertino_icons: ^1.0.0
+  # WillPopScope 替代方案
+  back_button_interceptor: ^4.4.1
+  # 推送
+  jpush_flutter: ^0.6.0
+  # webview
+  webview_flutter: ^1.0.7
+  # Aes 加密
+  encrypt: ^4.1.0
+  # dart 工具函数
+  flustars: ^0.3.3
+  # 设备信息
+  package_info: ^0.4.3+4
   # http 请求
   dio: ^3.0.9
   # 状态管理
@@ -22,7 +36,7 @@ dependencies:
   # 打开浏览器 写邮件 打电话 发短信
   url_launcher: ^5.7.10
   # toast 弹出框
-  fluttertoast: ^7.1.6
+  bot_toast: ^3.0.5
   # 权限
   permission_handler: ^5.0.1+1
   # 分享
@@ -35,6 +49,8 @@ dependencies:
   photo_view: ^0.10.3
   # app升级
   r_upgrade: ^0.3.2+3
+  # 图表
+  flutter_echarts: ^1.5.0
 
   
 dev_dependencies:

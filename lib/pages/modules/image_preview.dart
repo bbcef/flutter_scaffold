@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_scaffold/utils/navigator.dart';
-import 'package:flutter_scaffold/widgets/cs_image_preview.dart';
-import 'package:flutter_scaffold/widgets/cs_preview_image.dart';
-import 'package:photo_view/photo_view.dart';
+import 'package:flutter_scaffold/widgets/cs_photo_browser.dart';
 
 class ImagePreview extends StatefulWidget {
   static const String routeName = '/image_preview';
@@ -56,11 +54,10 @@ class _ImagePreviewState extends State<ImagePreview> {
               //   child: ,
               // ),
               onTap: (){
-                // Navigator.of(context).pushNamed('/cs_image_preview',arguments: imageUrl);
-                // Navigator.of(context).push(PageRouteBuilder(
-                //   pageBuilder: (c, a, s) => PreviewImagesWidget(urlImages,initialPage: index,))
-                // );
-                NavigatorUtils.pushPageByFade(context: context, targPage: PreviewImagesWidget(urlImages,initialPage: index,));
+                NavigatorUtils.pushPageByFade(
+                  context: context,
+                  targPage: CsPhotoBrowser(imgData:urlImages,index: index)
+                );
               },
             );
           }).toList(),

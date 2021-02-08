@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_scaffold/pages/app/index/index.dart';
 import 'package:flutter_scaffold/pages/app/theme_setting/index.dart';
 import 'package:flutter_scaffold/pages/app/unknow/index.dart';
-import 'package:flutter_scaffold/pages/home/index.dart';
 import 'package:flutter_scaffold/pages/modules/banner/index.dart';
 import 'package:flutter_scaffold/pages/modules/custom_icon/index.dart';
 import 'package:flutter_scaffold/pages/modules/easyrefresh/index.dart';
@@ -15,16 +15,19 @@ import 'package:flutter_scaffold/pages/modules/speak/index.dart';
 import 'package:flutter_scaffold/pages/modules/url_launcher/index.dart';
 import 'package:flutter_scaffold/pages/modules/utils/index.dart';
 import 'package:flutter_scaffold/pages/modules/view_model_page.dart';
+import 'package:flutter_scaffold/pages/modules/widget/index.dart';
 import 'package:flutter_scaffold/utils/navigator.dart';
-import 'package:flutter_scaffold/widgets/cs_image_preview.dart';
 import 'package:flutter_scaffold/pages/modules/image_picker/index.dart';
 import 'package:flutter_scaffold/pages/modules/amap_flutter_map/index.dart';
+import 'package:flutter_scaffold/pages/modules/flutter_echarts/index.dart';
+import 'package:flutter_scaffold/widgets/cs_web_view.dart';
 
 class CsRouter{
   static final Map<String, WidgetBuilder> routes = {
-    '/': (context) => MainPage(),
-    '/unknow': (context) => MainPage(),
+    '/': (context) => IndexPage(),
+    // '/unknow': (context) => MainPage(),
     '/theme_setting': (context) => ThemeSettingPage(),
+    // '/webview': (context) => CsWebView(),
     // '/coustom_icon': (context) => CoustomIconPage(),
 
     
@@ -43,6 +46,8 @@ class CsRouter{
     '/upgrade': (context) => UpgradePage(),
     '/utils': (context) => UtilsPage(),
     '/speak': (context) => SpeakPage(),
+    '/widget': (context) =>  WidgetPage(),
+    '/echarts': (context) =>  EchartsPage(),
     
     
     
@@ -51,19 +56,21 @@ class CsRouter{
 
   static final String initialRoute = '/';
 
+  // ignore: missing_return
   static RouteFactory onGenerateRoute = (settings){
     switch (settings.name) {
-      // 单图片 预览
-      case CsImagePreview.routeName:
-        return MaterialPageRoute(
-        builder: (context){
-          return CsImagePreview(settings.arguments);
-        }
-      );
       // 自定义icon
       case '/custom_icon':
         return Right2LeftRouter(
-            child: CoustomIconPage());
+          child: CoustomIconPage()
+        );
+        break;
+      // webview
+      case '/webview':
+        return Right2LeftRouter(
+          child: CsWebView(url: settings.arguments)
+        );
+        break;
     }
   };
 

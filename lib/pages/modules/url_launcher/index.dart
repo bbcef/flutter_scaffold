@@ -39,7 +39,7 @@ class _UrlLauncherPageState extends State<UrlLauncherPage> {
               padding: EdgeInsets.all(15),
               child: RaisedButton(
                 onPressed: _launchApp,
-                child: Text('打开微信'),
+                child: Text('打开第三方应用'),
               ),
             )
           ],
@@ -54,7 +54,7 @@ _launchURL() async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
-    throw 'Could not launch $url';
+    throw '无法启动 $url';
   }
 }
 // 发送邮件
@@ -63,7 +63,7 @@ _launchEmail() async {
   if (await canLaunch(email)) {
     await launch(email);
   } else {
-    throw 'Could not launch $email';
+    throw '无法启动 $email';
   }
 }
 // 拨打电话
@@ -73,7 +73,7 @@ _launchTEL() async {
   if (await canLaunch(tel)) {
     await launch(tel);
   } else {
-    throw 'Could not launch $phone';
+    throw '无法启动 $phone';
   }
 }
 // 发送短信
@@ -82,15 +82,15 @@ _launchSMS() async {
   if (await canLaunch(sms)) {
     await launch(sms);
   } else {
-    throw 'Could not launch $sms';
+    throw '无法启动 $sms';
   }
 }
 // 打开第三方应用 (更多 https://www.cnblogs.com/killbugme/p/13601832.html)
 _launchApp() async {
-  String app = 'weixin:// ';
+  String app = 'weixin://';
   if (await canLaunch(app)) {
     await launch(app);
   } else {
-    throw 'Could not launch $app';
+    throw '无法启动 $app';
   }
 }

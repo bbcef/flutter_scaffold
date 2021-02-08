@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 
 class AppConfig{
   // ----------------------------初始化----------------------------
-  // 主题
+  // 主题 - blue
   static final Color primaryColor = Colors.blue;
-  // 亮暗模式 - 
+  // 亮暗模式 - 跟随系统
   static final ThemeMode themeMode = ThemeMode.system;
-  // 是否显示性能浮层
+  // 是否显示性能浮层 - 不显示
   static final bool showPerformanceOverlay = false;
-  // title
+  // title 
   static final String title = 'flutter_scaffold';
+  // 是否全局灰色 - 否
+  static final bool isGrey = false;
 }
 
 class HttpConfig{
   static const String baseUrl = 'https://httpbin.org';
   static const int timeout = 5000;
 }
-
 
 class ThemeConfig{
   // ----------------------------亮暗模式----------------------------
@@ -54,7 +55,10 @@ class ThemeConfig{
     cardTheme: cardTheme,
     textTheme: textTheme
   );
-  
-
 
 }
+
+// 本地存储数据 KEY
+const String Key_LastVersion = "lastVersion";
+
+

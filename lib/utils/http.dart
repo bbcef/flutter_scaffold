@@ -46,18 +46,18 @@ class Http{
 
 
 void formatError(DioError e) {
-  FlutterToast.cancel();
+  // FlutterToast.cancel();
   if (e.type == DioErrorType.CONNECT_TIMEOUT) {
-    FlutterToast.toast("网络好像出问题了");
+    Bot.toast("网络好像出问题了");
   } else if (e.type == DioErrorType.SEND_TIMEOUT) {
-    FlutterToast.toast("请求超时");
+    Bot.toast("请求超时");
   } else if (e.type == DioErrorType.RECEIVE_TIMEOUT) {
-    FlutterToast.toast("响应超时");
+    Bot.toast("响应超时");
   } else if (e.type == DioErrorType.RESPONSE) {
-    FlutterToast.toast("出现异常");
+    Bot.toast("出现异常");
   } else if (e.type == DioErrorType.CANCEL) {
-    FlutterToast.toast("请求取消");
+    Bot.toast("请求取消");
   } else {
-    FlutterToast.toast("网络好像出问题了");
+    Bot.toast("网络好像出问题了");
   }
 }

@@ -6,8 +6,8 @@ class HomeBottomBarItem extends BottomNavigationBarItem {
   HomeBottomBarItem(IconData icon,IconData activeIcon,String title)
   : super(
     label:title,
-    icon: Icon(icon,size: 32,),
-    activeIcon: Icon(activeIcon, size: 32)
+    icon: Icon(icon),
+    activeIcon: Icon(activeIcon)
   );
 }
 

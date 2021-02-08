@@ -1,21 +1,11 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
-class FlutterToast {
-  static void toast(String msg){
-    Fluttertoast.showToast(
-      msg: msg,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,  // 消息框弹出的位置
-      // backgroundColor: Colors.grey,
-      // textColor: Colors.white,
-      fontSize: 16.0
-    );
+class Bot{
+  static void toast(String title){
+    BotToast.showText(text: title);
   }
-  static void cancel(){
-    Fluttertoast.cancel();
-  }
+  
 }
 
 

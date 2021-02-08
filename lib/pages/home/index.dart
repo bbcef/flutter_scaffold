@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
   signout() async {
     if(lastPopTime == null || DateTime.now().difference(lastPopTime) > Duration(seconds: 2)){
       lastPopTime = DateTime.now();
-      FlutterToast.toast('再按一次退出');
+      Bot.toast('再按一次退出');
     }else{
       lastPopTime = DateTime.now();
       await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
@@ -44,6 +44,8 @@ class _MainPageState extends State<MainPage> {
         ),
         drawer: DrawerContent(),
         bottomNavigationBar: BottomNavigationBar(
+          elevation:14,
+          showSelectedLabels: true,
           unselectedFontSize: 14,
           selectedFontSize: 14,
           currentIndex: _currIndex,
@@ -56,9 +58,7 @@ class _MainPageState extends State<MainPage> {
           },
         )
       ),
-      onWillPop: (){
-        signout();
-      }
+      onWillPop: () => signout()
     );
   }
 }

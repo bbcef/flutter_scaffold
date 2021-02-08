@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scaffold/api/index.dart';
 
@@ -12,17 +13,24 @@ class _ContentState extends State<Content> {
 
 
   void getLIstData(){
+    BotToast.showCustomLoading(
+      toastBuilder: (cancelFunc) {
+        return _loadingWidget();
+      }
+    );
     setState((){
       loading = true;
     });
     MovieList.getBMovieList().then(
       (result){
+        BotToast.closeAllLoading();
         setState((){
           loading = false;
           movies.addAll(result);
         });
       }
     ).catchError((err){
+      BotToast.closeAllLoading();
       setState((){
         loading = false;
       });
@@ -35,24 +43,20 @@ class _ContentState extends State<Content> {
   }
   Widget _loadingWidget(){
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 50,
-            height: 50,
-            child:CircularProgressIndicator(
-              value: null,
-              backgroundColor: Colors.grey.withAlpha(33),
-              valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
-              strokeWidth: 5,
-            )
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Container(
+          color: Theme.of(context).cardColor,
+          width: 100,
+          height: 100,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              CircularProgressIndicator(),
+              Text("加载中...")
+            ],
           ),
-          SizedBox(
-            height: 10
-          ),
-          Text('加载中...')
-        ],
+        ),
       )
     );
   }
@@ -72,9 +76,7 @@ class _ContentState extends State<Content> {
   }
   @override
   Widget build(BuildContext context) {
-    if(movies.length == 0 && loading == true){
-      return _loadingWidget();
-    } else if(movies.length == 0 && loading == false){
+    if(movies.length == 0 && loading == false){
       return _warningWidget();
     }
     return ListView.builder(
@@ -111,7 +113,7 @@ class _BListItemState extends State<BListItem> {
         image: image,
         fit:BoxFit.cover,
         width: 130,
-        height: 90
+        height: 95
       ),
       // Image.network(image,fit: BoxFit.cover,width: 130,height: 90) 
     );
@@ -124,11 +126,11 @@ class _BListItemState extends State<BListItem> {
       child: Container(
         margin: EdgeInsets.only(left:8),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildTextTitle(info['title'],index),
-            SizedBox(height:15.0),
+            SizedBox(height:13.0),
             _buildPlayInfo(info),
             _buildOther(info['score'])
           ]

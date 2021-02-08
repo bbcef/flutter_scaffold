@@ -77,48 +77,49 @@ class _PermissionRequestWidgetState extends State<PermissionRequestWidget>
       String message, String rightString, Permission permission,
       {bool isSetting = false}) {
     showCupertinoDialog(
-        builder: (BuildContext context) {
-          return CupertinoAlertDialog(
-            title: Text("温馨提示"),
-            content: Container(
-              padding: EdgeInsets.all(12),
-              child: Text(message),
+      builder: (BuildContext context) {
+        return CupertinoAlertDialog(
+          title: Text("温馨提示"),
+          content: Container(
+            padding: EdgeInsets.all(12),
+            child: Text(message),
+          ),
+          actions: [
+            //左边的按钮
+            CupertinoDialogAction(
+              child: Text("${widget.leftButtonText}"),
+              onPressed: () {
+                if (widget.isCloseApp) {
+                  closeApp();
+                } else {
+                  // 关闭弹框
+                  Navigator.of(context).pop(false);
+                  // 关闭页面
+                  Navigator.of(context).pop(false);
+                }
+              },
             ),
-            actions: [
-              //左边的按钮
-              CupertinoDialogAction(
-                child: Text("${widget.leftButtonText}"),
-                onPressed: () {
-                  if (widget.isCloseApp) {
-                    closeApp();
-                  } else {
-                    // 关闭弹框
-                    Navigator.of(context).pop(false);
-                    // 关闭页面
-                    Navigator.of(context).pop(false);
-                  }
-                },
-              ),
-              //右边的按钮
-              CupertinoDialogAction(
-                child: Text("$rightString"),
-                onPressed: () {
-                  //关闭弹框
-                  Navigator.of(context).pop();
-                  if (isSetting) {
-                    _isGoSetting = true;
-                    //去设置中心
-                    openAppSettings();
-                  } else {
-                    //申请权限
-                    requestPermiss(permission);
-                  }
-                },
-              )
-            ],
-          );
-        },
-        context: context);
+            //右边的按钮
+            CupertinoDialogAction(
+              child: Text("$rightString"),
+              onPressed: () {
+                //关闭弹框
+                Navigator.of(context).pop();
+                if (isSetting) {
+                  _isGoSetting = true;
+                  //去设置中心
+                  openAppSettings();
+                } else {
+                  //申请权限
+                  requestPermiss(permission);
+                }
+              },
+            )
+          ],
+        );
+      },
+      context: context
+    );
   }
 
   void requestPermiss(Permission permission) async {

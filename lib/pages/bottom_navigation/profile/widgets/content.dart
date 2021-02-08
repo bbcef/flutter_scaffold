@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_scaffold/utils/navigator.dart';
 import 'package:flutter_scaffold/widgets/cs_badge.dart';
+import 'package:flutter_scaffold/widgets/cs_web_view.dart';
+import 'package:flutter_scaffold/pages/app/setting/index.dart';
 
 class ListModel {
   final IconData icon;
@@ -22,6 +25,8 @@ class _ProfileContentState extends State<ProfileContent> {
 
   List<ListModel> _list = [
     ListModel(Icons.settings,'常用工具函数','/utils',true),
+    ListModel(Icons.menu_outlined,'widget','/widget',true),
+    
     ListModel(Icons.insert_emoticon,'自定义 icon','/custom_icon',true),
     ListModel(Icons.view_module_outlined,'ViewModel Demo','/viewmodel',false),
     ListModel(Icons.router_outlined,'Routet Demo','/router',false),
@@ -33,6 +38,7 @@ class _ProfileContentState extends State<ProfileContent> {
     ListModel(Icons.refresh,'插件 - flutter_easyrefresh','/flutter_easyrefresh',true),
     ListModel(Icons.refresh,'Widget - banner','/banner',true),
     ListModel(Icons.upgrade,'Widget - r_upgrade','/upgrade',true),
+    ListModel(Icons.pie_chart,'Widget - flutter_echarts','/echarts',true),
     
 
     ListModel(Icons.map,'插件 - amap_flutter_map','/amap_flutter_map',false),
@@ -116,6 +122,10 @@ class _ProfileContentState extends State<ProfileContent> {
         IconButton(
           icon: Icon(Icons.settings), 
           onPressed: (){
+            const String url = 'https://github.com/bbcef/flutter_scaffold';
+            const String title = "github";
+            // NavigatorUtils.pushPage(context:context,targPage: CsWebView(url: url,title: title));
+            NavigatorUtils.pushPage(context:context,targPage: SettingPage());
             
           }
         )

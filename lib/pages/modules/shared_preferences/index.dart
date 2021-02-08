@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_scaffold/utils/local_storage.dart';
+import 'package:flutter_scaffold/utils/storage_utils.dart';
 import 'package:flutter_scaffold/utils/toast.dart';
 
 
@@ -74,27 +74,22 @@ class _PageBodyState extends State<PageBody> {
                   SnackBarToast.toast(context,'数据不能为空');
                   return;
                 }
-                LocalStorage.save('username', username).then((value){
-                  if(value == true){
-                    SnackBarToast.toast(context,'数据存储成功');
-                  }
-                });
+                StorageUtils.saveString('username', username);
+                SnackBarToast.toast(context,'数据存储成功');
               }),
           RaisedButton(
               color: Colors.greenAccent,
               child: Text("获取"),
               onPressed: () {
-                LocalStorage.get('username').then((username){
-                  SnackBarToast.toast(context,"数据获取成功：$username");
-                });
+                var username = StorageUtils.getStringWithKey("username");
+                SnackBarToast.toast(context,"数据获取成功：$username");
               }),
           RaisedButton(
               color: Colors.greenAccent,
               child: Text("清除"),
               onPressed: () {
-                LocalStorage.remove('username').then((username){
-                  SnackBarToast.toast(context,"重置成功");
-                });
+                StorageUtils.removeWithKey('username');
+                SnackBarToast.toast(context,"重置成功");
               }),
         ],
       )
